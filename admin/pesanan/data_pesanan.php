@@ -16,7 +16,7 @@ include 'inc/koneksi.php';
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
-			<table id="example1" class="table table-bordered table-striped text-center align-middle p-0">
+			<table id="example1" class="table table-bordered table-striped text-center align-middle">
 				<thead>
 					<tr>
 						<th rowspan="2">No</th>
@@ -24,11 +24,11 @@ include 'inc/koneksi.php';
 						<th colspan="2">Tanggal</th>
 						<th rowspan="2">NoSPJ</th>
 						<th rowspan="2">NoSO</th>
-						<th colspan="3">IDENTITAS PENGIRIMAN BARANG</th>
+						<th colspan="3">IDENTITAS PENGIRIMAN</th>
 						<th colspan="2">Zak</th>
-						<!-- <th colspan="2">TON</th> -->
 						<th colspan="2">Harga</th>
 						<th rowspan="2">Total Harga</th>
+						<th rowspan="2">Wilayah</th>
 						<th rowspan="2">Aksi</th>
 					</tr>
 					<tr>
@@ -39,8 +39,6 @@ include 'inc/koneksi.php';
 						<th>Angkut</th>
 						<th>40</th>
 						<th>50</th>
-						<!-- <th>40</th>
-						<th>50</th> -->
 						<th>40</th>
 						<th>50</th>
 					</tr>
@@ -49,10 +47,27 @@ include 'inc/koneksi.php';
 
 					<?php
 					$no = 1;
-					$sql = $koneksi->query("SELECT * from tb_pesanan as p
-					inner join tb_toko as t on p.id_toko=t.id_toko 
-					inner join tb_angkut as a on p.id_angkut=a.id_angkut
-					where wilayah = 'Wajo'");
+					$user = $_SESSION["ses_username"];
+
+					if ($user == "admin") {
+						$sql = $koneksi->query("SELECT * from tb_pesanan as p 
+						inner join tb_toko as t on p.id_toko=t.id_toko 
+						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
+						where wilayah IS NOT NULL");
+					} elseif ($user == "KKT") {
+						$sql = $koneksi->query("SELECT * from tb_pesanan as p 
+						inner join tb_toko as t on p.id_toko=t.id_toko 
+						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
+						where wilayah IS NOT NULL");
+					} else {
+						$stmt = $koneksi->prepare("SELECT * from tb_pesanan as p 
+						inner join tb_toko as t on p.id_toko=t.id_toko 
+						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
+						where wilayah = ?");
+						$stmt->bind_param('s', $user);
+						$stmt->execute();
+						$sql = $stmt->get_result();
+					}
 					while ($data = $sql->fetch_assoc()) {
 					?>
 
@@ -90,12 +105,6 @@ include 'inc/koneksi.php';
 							<td>
 								<?php echo $data['zak_50']; ?>
 							</td>
-							<!-- <td>
-								<?php echo $data['zak_40'] * 40; ?> Kg
-							</td>
-							<td>
-								<?php echo $data['zak_50'] * 50; ?> Kg
-							</td> -->
 							<td>
 								Rp.<?php echo $data['harga_40']; ?>
 							</td>
@@ -104,6 +113,9 @@ include 'inc/koneksi.php';
 							</td>
 							<td>
 								Rp.<?php echo ($data['zak_40'] * $data['harga_40']) + ($data['zak_50'] * $data['harga_50']); ?>
+							</td>
+							<td>
+								<?php echo $data['wilayah']; ?>
 							</td>
 
 							<td>

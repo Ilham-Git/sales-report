@@ -5,50 +5,99 @@ while ($data = $sql->fetch_assoc()) {
 	$pesan = $data['pesan'];
 }
 
-// $sql = $koneksi->query("SELECT COUNT(id_pend) as laki  from tb_pdd where status = 'Ada' and  jekel='L'");
-// while ($data = $sql->fetch_assoc()) {
-// 	$laki = $data['laki'];
-// }
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as bone1 from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Bone1'");
+while ($data = $sql->fetch_assoc()) {
+	$bone1 = $data['bone1'];
+}
 
-// $sql = $koneksi->query("SELECT COUNT(id_pend) as prem  from tb_pdd where status = 'Ada' and  jekel='P'");
-// while ($data = $sql->fetch_assoc()) {
-// 	$prem = $data['prem'];
-// }
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as bone2 from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Bone2'");
+while ($data = $sql->fetch_assoc()) {
+	$bone2 = $data['bone2'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as bone3 from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Bone3'");
+while ($data = $sql->fetch_assoc()) {
+	$bone3 = $data['bone3'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as pare from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Parepare'");
+while ($data = $sql->fetch_assoc()) {
+	$pare = $data['pare'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as pinrang from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Pinrang'");
+while ($data = $sql->fetch_assoc()) {
+	$pinrang = $data['pinrang'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as sidrap from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Sidrap'");
+while ($data = $sql->fetch_assoc()) {
+	$sidrap = $data['sidrap'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as soppeng from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Soppeng'");
+while ($data = $sql->fetch_assoc()) {
+	$soppeng = $data['soppeng'];
+}
+
+$sql = $koneksi->query("SELECT COUNT(tb_toko.id_toko) as wajo from tb_pesanan 
+						inner join tb_toko on tb_pesanan.id_toko=tb_toko.id_toko 
+						where wilayah = 'Wajo'");
+while ($data = $sql->fetch_assoc()) {
+	$wajo = $data['wajo'];
+}
 
 ?>
 
 <div class="row">
 	<div class="col-lg-3 col-6">
 		<!-- small box -->
-		<div class="small-box bg-info">
+		<div class="small-box bg-success">
 			<div class="inner">
 				<h3>
-					<?php echo $pend;  ?>
+					<?php echo $pesan;  ?>
 				</h3>
 
-				<p>Penduduk</p>
+				<p>Semua Data</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-person-add"></i>
 			</div>
-			<a href="index.php?page=data-pend" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
 	</div>
+	<div class="col-lg-3 col-6"></div>
+	<div class="col-lg-3 col-6"></div>
+	<div class="col-lg-3 col-6"></div>
 	<!-- ./col -->
 	<div class="col-lg-3 col-6">
 		<!-- small box -->
-		<div class="small-box bg-red">
+		<div class="small-box bg-primary">
 			<div class="inner">
 				<h3>
-					<?php echo $laki;  ?>
+					<?php echo $bone1;  ?>
 				</h3>
 
-				<p>Laki-laki</p>
+				<p>Bone 1</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-male"></i>
+				<i class="ion ion-map"></i>
 			</div>
 			<a href="index.php?page=data-laki" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
@@ -61,17 +110,132 @@ while ($data = $sql->fetch_assoc()) {
 		<div class="small-box bg-purple">
 			<div class="inner">
 				<h3>
-					<?php echo $prem;  ?>
+					<?php echo $bone2;  ?>
 				</h3>
 
-				<p>Perempuan</p>
+				<p>Bone 2</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-female"></i>
+				<i class="ion ion-map"></i>
 			</div>
 			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
 	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-danger">
+			<div class="inner">
+				<h3>
+					<?php echo $bone3;  ?>
+				</h3>
+
+				<p>Bone 3</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-info">
+			<div class="inner">
+				<h3>
+					<?php echo $pare;  ?>
+				</h3>
+
+				<p>Parepare</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-primary">
+			<div class="inner">
+				<h3>
+					<?php echo $pinrang;  ?>
+				</h3>
+
+				<p>Pinrang</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-purple">
+			<div class="inner">
+				<h3>
+					<?php echo $sidrap;  ?>
+				</h3>
+
+				<p>Sidrap</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-danger">
+			<div class="inner">
+				<h3>
+					<?php echo $soppeng;  ?>
+				</h3>
+
+				<p>Soppeng</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
+	<div class="col-lg-3 col-6">
+		<!-- small box -->
+		<div class="small-box bg-info">
+			<div class="inner">
+				<h3>
+					<?php echo $wajo;  ?>
+				</h3>
+
+				<p>Wajo</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-map"></i>
+			</div>
+			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+				<i class="fas fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+	<!-- ./col -->
 </div>

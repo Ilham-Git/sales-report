@@ -77,7 +77,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-person-add"></i>
 			</div>
-			<a href="index.php?page=data-pend" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
