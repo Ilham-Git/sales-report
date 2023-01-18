@@ -321,7 +321,7 @@ include "inc/koneksi.php";
 							</li>
 
 							<li class="nav-item has-treeview">
-								<a href="?page=data-pesanan" class="nav-link">
+								<a href="?page=data-pesanan-sales" class="nav-link">
 									<i class="nav-icon fas fa-table"></i>
 									<p>
 										Kelola Data Wilayah
@@ -413,6 +413,17 @@ include "inc/koneksi.php";
 								break;
 							case 'view-pesanan':
 								include "admin/pesanan/view_pesanan.php";
+								break;
+
+								//sales
+							case 'data-pesanan-sales':
+								include "admin/sales/data_pesanan_sales.php";
+								break;
+							case 'add-pesanan-sales':
+								include "admin/sales/add_pesanan_sales.php";
+								break;
+							case 'edit-pesanan-sales':
+								include "admin/sales/edit_pesanan_sales.php";
 								break;
 
 								//upload

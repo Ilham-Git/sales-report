@@ -29,7 +29,7 @@ include 'inc/koneksi.php';
 						<th colspan="2">Harga</th>
 						<th rowspan="2">Total Harga</th>
 						<th rowspan="2">Wilayah</th>
-						<th rowspan="2">Aksi</th>
+						<th rowspan="2">Aktivitas</th>
 					</tr>
 					<tr>
 						<th>Kirim</th>
@@ -47,27 +47,12 @@ include 'inc/koneksi.php';
 
 					<?php
 					$no = 1;
-					$user = $_SESSION["ses_username"];
 
-					if ($user == "admin") {
-						$sql = $koneksi->query("SELECT * from tb_pesanan as p 
+					$sql = $koneksi->query("SELECT * from tb_pesanan as p 
 						inner join tb_toko as t on p.id_toko=t.id_toko 
 						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
 						where wilayah IS NOT NULL");
-					} elseif ($user == "KKT") {
-						$sql = $koneksi->query("SELECT * from tb_pesanan as p 
-						inner join tb_toko as t on p.id_toko=t.id_toko 
-						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
-						where wilayah IS NOT NULL");
-					} else {
-						$stmt = $koneksi->prepare("SELECT * from tb_pesanan as p 
-						inner join tb_toko as t on p.id_toko=t.id_toko 
-						inner join tb_angkut as a on p.id_angkut=a.id_angkut 
-						where wilayah = ?");
-						$stmt->bind_param('s', $user);
-						$stmt->execute();
-						$sql = $stmt->get_result();
-					}
+
 					while ($data = $sql->fetch_assoc()) {
 					?>
 
@@ -119,9 +104,9 @@ include 'inc/koneksi.php';
 							</td>
 
 							<td>
-								<!-- <a href="?page=view-pesanan&kode=<?php echo $data['id_pesan']; ?>" title="Detail" class="btn btn-info btn-sm">
+								<a href="?page=view-pesanan&kode=<?php echo $data['id_pesan']; ?>" title="Detail" class="btn btn-info btn-sm">
 									<i class="fa fa-user"></i>
-								</a> -->
+								</a>
 								<a href="?page=edit-pesanan&kode=<?php echo $data['id_pesan']; ?>" title="Ubah" class="btn btn-success btn-sm">
 									<i class="fa fa-edit"></i>
 								</a>
