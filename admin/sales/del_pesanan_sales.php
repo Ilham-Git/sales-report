@@ -8,7 +8,7 @@ if (isset($_GET['kode'])) {
                 Swal.fire({title: 'Hapus Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.value) {
-                        window.location = 'index.php?page=data-pesanan';
+                        window.location = 'index.php?page=data-pesanan-sales';
                     }
                 })</script>";
     } else {
@@ -16,7 +16,7 @@ if (isset($_GET['kode'])) {
                 Swal.fire({title: 'Hapus Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.value) {
-                        window.location = 'index.php?page=data-pesanan';
+                        window.location = 'index.php?page=data-pesanan-sales';
                     }
                 })</script>";
     }

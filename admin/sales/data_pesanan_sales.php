@@ -115,13 +115,13 @@ include 'inc/koneksi.php';
                             </td>
 
                             <td>
-                                <a href="?page=view-pesanan&kode=<?php echo $data['id_pesan']; ?>" title="Detail" class="btn btn-info btn-sm">
+                                <a href="?page=view-pesanan-sales&kode=<?php echo $data['id_pesan']; ?>" title="Detail" class="btn btn-info btn-sm">
                                     <i class="fa fa-user"></i>
                                 </a>
                                 <a href="?page=edit-pesanan-sales&kode=<?php echo $data['id_pesan']; ?>" title="Ubah" class="btn btn-success btn-sm">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="?page=del-pesanan&kode=<?php echo $data['id_pesan']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus" class="btn btn-danger btn-sm">
+                                <a href="?page=del-pesanan-sales&kode=<?php echo $data['id_pesan']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus" class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

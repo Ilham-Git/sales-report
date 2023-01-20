@@ -1,9 +1,6 @@
 <?php
 if (isset($_GET['kode'])) {
-	// $sql_cek = "SELECT * FROM tb_pesanan WHERE id_pesanan='" . $_GET['kode'] . "'";
-	// $query_cek = mysqli_query($koneksi, $sql_cek);
-	// $data = mysqli_fetch_array($query_cek, MYSQLI_BOTH);
-
+	$user = $_SESSION["ses_username"];
 	$kode = $_GET['kode'];
 	$stmt = $koneksi->prepare("SELECT * from tb_pesanan as p 
 						inner join tb_toko as t on p.id_toko=t.id_toko 
@@ -37,8 +34,10 @@ while ($data = $sql->fetch_assoc()) {
 							<option selected="selected">---Nama Toko---</option>
 							<?php
 							// ambil data dari database
-							$query = "select * from tb_toko";
-							$hasil = mysqli_query($koneksi, $query);
+							$stmt = $koneksi->prepare("select * from tb_toko where wilayah = ?");
+							$stmt->bind_param('s', $user);
+							$stmt->execute();
+							$hasil = $stmt->get_result();
 							while ($row = mysqli_fetch_array($hasil)) {
 							?>
 								<option value="<?php echo $row['id_toko'] ?>">
@@ -88,8 +87,10 @@ while ($data = $sql->fetch_assoc()) {
 							<option selected="selected">---Nama Sopir---</option>
 							<?php
 							// ambil data dari database
-							$query = "select * from tb_angkut";
-							$hasil = mysqli_query($koneksi, $query);
+							$stmt = $koneksi->prepare("select * from tb_angkut where wilayah_angkut = ?");
+							$stmt->bind_param('s', $user);
+							$stmt->execute();
+							$hasil = $stmt->get_result();
 							while ($row = mysqli_fetch_array($hasil)) {
 							?>
 								<option value="<?php echo $row['id_angkut'] ?>">
@@ -168,14 +169,14 @@ if (isset($_POST['Ubah'])) {
 		echo "<script>
       Swal.fire({title: 'Ubah Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
       }).then((result) => {if (result.value)
-        {window.location = 'index.php?page=data-pesanan';
+        {window.location = 'index.php?page=data-pesanan-sales';
         }
       })</script>";
 	} else {
 		echo "<script>
       Swal.fire({title: 'Ubah Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
       }).then((result) => {if (result.value)
-        {window.location = 'index.php?page=data-pesanan';
+        {window.location = 'index.php?page=data-pesanan-sales';
         }
       })</script>";
 	}

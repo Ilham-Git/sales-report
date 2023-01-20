@@ -151,14 +151,14 @@ if (isset($_POST['Simpan'])) {
         echo "<script>
       Swal.fire({title: 'Tambah Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
       }).then((result) => {if (result.value){
-          window.location = 'index.php?page=data-pesanan';
+          window.location = 'index.php?page=data-pesanan-sales';
           }
       })</script>";
     } else {
         echo "<script>
       Swal.fire({title: 'Tambah Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
       }).then((result) => {if (result.value){
-          window.location = 'index.php?page=add-pesanan';
+          window.location = 'index.php?page=add-pesanan-sales';
           }
       })</script>";
     }

@@ -26,6 +26,8 @@ include "inc/koneksi.php";
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Font Awesome -->
+	<link rel="stylesheet" href="dist/css/adminlte.css">
+	<!-- Font Awesome -->
 	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -72,7 +74,7 @@ include "inc/koneksi.php";
 		<!-- /.navbar -->
 
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar">
 			<!-- Brand Logo -->
 			<a href="index.php" class="brand-link">
 				<img src="dist/img/sales.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
@@ -117,7 +119,7 @@ include "inc/koneksi.php";
 
 				<!-- Sidebar Menu -->
 				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
 
 						<!-- Level  -->
 						<?php
@@ -424,6 +426,12 @@ include "inc/koneksi.php";
 								break;
 							case 'edit-pesanan-sales':
 								include "admin/sales/edit_pesanan_sales.php";
+								break;
+							case 'del-pesanan-sales':
+								include "admin/sales/del_pesanan_sales.php";
+								break;
+							case 'view-pesanan-sales':
+								include "admin/sales/view_pesanan_sales.php";
 								break;
 
 								//upload
