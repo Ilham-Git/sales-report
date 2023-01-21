@@ -138,7 +138,7 @@ if (isset($_GET['kode'])) {
 			</tbody>
 		</table>
 		<div class="card-footer">
-			<a href="?page=data-pesanan" class="btn btn-info">Kembali</a>
+			<a href="?page=data-pesanan-sales" class="btn btn-info">Kembali</a>
 		</div>
 	</div>
 </div>

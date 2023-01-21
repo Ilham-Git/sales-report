@@ -1525,13 +1525,13 @@ pre code {
   padding: 0rem;
   vertical-align: middle;
   border-top: 1px solid #dee2e6;
-  text-align: center;
+  text-align: left;
 }
 
 .table thead th {
   vertical-align: middle;
   border-bottom: 2px solid #dee2e6;
-  text-align: center;
+  text-align: left;
 }
 
 .table tbody + tbody {
