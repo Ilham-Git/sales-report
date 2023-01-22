@@ -64,7 +64,7 @@ while ($data = $result->fetch_assoc()) {
 			<div class="icon">
 				<i class="fa fa-home" aria-hidden="true"></i>
 			</div>
-			<a href="index.php?page=data-pesanan-sales" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-toko" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -81,7 +81,7 @@ while ($data = $result->fetch_assoc()) {
 			<div class="icon">
 				<i class="fa fa-truck" aria-hidden="true"></i>
 			</div>
-			<a href="index.php?page=data-pesanan-sales" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-angkut" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>

@@ -4,7 +4,7 @@ $user = $_SESSION["ses_username"];
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">
-            <i class="fa fa-edit"></i> Tambah Data
+            <i class="fa fa-edit"></i> Tambah Data Pesanan
         </h3>
     </div>
     <form action="" method="post" enctype="multipart/form-data">

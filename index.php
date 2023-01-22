@@ -434,6 +434,40 @@ include "inc/koneksi.php";
 								include "admin/sales/view_pesanan_sales.php";
 								break;
 
+								//toko
+							case 'data-toko':
+								include "admin/toko/data_toko.php";
+								break;
+							case 'add-toko':
+								include "admin/toko/add_toko.php";
+								break;
+							case 'edit-toko':
+								include "admin/toko/edit_toko.php";
+								break;
+							case 'del-toko':
+								include "admin/toko/del_toko.php";
+								break;
+							case 'view-toko':
+								include "admin/toko/view_toko.php";
+								break;
+
+								//angkut
+							case 'data-angkut':
+								include "admin/angkut/data_angkut.php";
+								break;
+							case 'add-angkut':
+								include "admin/angkut/add_angkut.php";
+								break;
+							case 'edit-angkut':
+								include "admin/angkut/edit_angkut.php";
+								break;
+							case 'del-angkut':
+								include "admin/angkut/del_angkut.php";
+								break;
+							case 'view-angkut':
+								include "admin/angkut/view_angkut.php";
+								break;
+
 								//upload
 							case 'import-data':
 								include "import.php";
