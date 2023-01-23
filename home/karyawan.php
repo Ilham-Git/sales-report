@@ -84,7 +84,7 @@ while ($data = $sql->fetch_assoc()) {
 				<p>Semua Data</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-person-add"></i>
+				<i class="fa fa-globe" aria-hidden="true"></i>
 			</div>
 			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
@@ -141,7 +141,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-laki" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -160,7 +160,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -179,7 +179,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -198,7 +198,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -217,7 +217,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -236,7 +236,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -255,7 +255,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>
@@ -274,7 +274,7 @@ while ($data = $sql->fetch_assoc()) {
 			<div class="icon">
 				<i class="ion ion-map"></i>
 			</div>
-			<a href="index.php?page=data-prem" class="small-box-footer">Selengkapnya
+			<a href="index.php?page=data-pesanan" class="small-box-footer">Selengkapnya
 				<i class="fas fa-arrow-circle-right"></i>
 			</a>
 		</div>

@@ -194,6 +194,24 @@ include "inc/koneksi.php";
 								</ul>
 							</li>
 
+							<li class="nav-item has-treeview">
+								<a href="?page=data-toko-sales" class="nav-link">
+									<i class="nav-icon fas fa-home"></i>
+									<p>
+										Kelola Data Toko
+									</p>
+								</a>
+							</li>
+
+							<li class="nav-item has-treeview">
+								<a href="?page=data-angkut-sales" class="nav-link">
+									<i class="nav-icon fas fa-truck"></i>
+									<p>
+										Kelola Data Angkutan
+									</p>
+								</a>
+							</li>
+
 							<li class="nav-header">Setting</li>
 
 							<li class="nav-item">
@@ -292,6 +310,24 @@ include "inc/koneksi.php";
 								</ul>
 							</li>
 
+							<li class="nav-item has-treeview">
+								<a href="?page=data-toko" class="nav-link">
+									<i class="nav-icon fas fa-home"></i>
+									<p>
+										Kelola Data Toko
+									</p>
+								</a>
+							</li>
+
+							<li class="nav-item has-treeview">
+								<a href="?page=data-angkut" class="nav-link">
+									<i class="nav-icon fas fa-truck"></i>
+									<p>
+										Kelola Data Angkutan
+									</p>
+								</a>
+							</li>
+
 							<li class="nav-header">Setting</li>
 
 							<li class="nav-item">
@@ -324,9 +360,27 @@ include "inc/koneksi.php";
 
 							<li class="nav-item has-treeview">
 								<a href="?page=data-pesanan-sales" class="nav-link">
-									<i class="nav-icon fas fa-table"></i>
+									<i class="nav-icon fas fa-shopping-cart"></i>
 									<p>
-										Kelola Data Wilayah
+										Kelola Data Pesanan
+									</p>
+								</a>
+							</li>
+
+							<li class="nav-item has-treeview">
+								<a href="?page=data-toko-sales" class="nav-link">
+									<i class="nav-icon fas fa-home"></i>
+									<p>
+										Kelola Data Toko
+									</p>
+								</a>
+							</li>
+
+							<li class="nav-item has-treeview">
+								<a href="?page=data-angkut-sales" class="nav-link">
+									<i class="nav-icon fas fa-truck"></i>
+									<p>
+										Kelola Data Angkutan
 									</p>
 								</a>
 							</li>
@@ -483,6 +537,23 @@ include "inc/koneksi.php";
 								break;
 							case 'view-angkut':
 								include "admin/angkut/view_angkut.php";
+								break;
+
+								//angkut sales
+							case 'data-angkut-sales':
+								include "admin/angkut sales/data_angkut_sales.php";
+								break;
+							case 'add-angkut-sales':
+								include "admin/angkut sales/add_angkut_sales.php";
+								break;
+							case 'edit-angkut-sales':
+								include "admin/angkut sales/edit_angkut_sales.php";
+								break;
+							case 'del-angkut-sales':
+								include "admin/angkut sales/del_angkut_sales.php";
+								break;
+							case 'view-angkut-sales':
+								include "admin/angkut sales/view_angkut_sales.php";
 								break;
 
 								//upload

@@ -12,6 +12,11 @@
                             <option value="xls">XLS</option>
                             <option value="csv">CSV</option>
                         </select>
+                        <select name="export_from" id="form-control">
+                            <option value="pesanan">Pesanan</option>
+                            <option value="toko">Toko</option>
+                            <option value="angkutan">Angkutan</option>
+                        </select>
                         <button type="submit" name="export_data" class="btn btn-primary">Export</button>
                     </form>
                 </div>

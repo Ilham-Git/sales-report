@@ -8,6 +8,11 @@
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="import_file" class="form-control">
+                        <select name="import_to" id="form-control">
+                            <option value="pesanan">Pesanan</option>
+                            <option value="toko">Toko</option>
+                            <option value="angkutan">Angkutan</option>
+                        </select>
                         <button type="submit" name="save_data" class="btn btn-primary">Import</button>
                     </form>
                 </div>
