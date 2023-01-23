@@ -451,6 +451,23 @@ include "inc/koneksi.php";
 								include "admin/toko/view_toko.php";
 								break;
 
+								//toko sales
+							case 'data-toko-sales':
+								include "admin/toko sales/data_toko_sales.php";
+								break;
+							case 'add-toko-sales':
+								include "admin/toko sales/add_toko_sales.php";
+								break;
+							case 'edit-toko-sales':
+								include "admin/toko sales/edit_toko_sales.php";
+								break;
+							case 'del-toko-sales':
+								include "admin/toko sales/del_toko_sales.php";
+								break;
+							case 'view-toko-sales':
+								include "admin/toko sales/view_toko_sales.php";
+								break;
+
 								//angkut
 							case 'data-angkut':
 								include "admin/angkut/data_angkut.php";
