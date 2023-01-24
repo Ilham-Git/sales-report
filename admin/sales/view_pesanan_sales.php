@@ -128,11 +128,29 @@ if (isset($_GET['kode'])) {
 				</tr>
 				<tr>
 					<td style="width: 250px">
+						<b>Total Harga 40kg</b>
+					</td>
+					<td>
+						<b class="mr-3">:</b>
+						Rp.<?php echo $data['total_40']; ?>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 250px">
+						<b>Total Harga 50kg</b>
+					</td>
+					<td>
+						<b class="mr-3">:</b>
+						Rp.<?php echo $data['total_50']; ?>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 250px">
 						<b>Total Harga</b>
 					</td>
 					<td>
 						<b class="mr-3">:</b>
-						Rp.<?php echo ($data['zak_40'] * $data['harga_40']) + ($data['zak_50'] * $data['harga_50']); ?>
+						Rp.<?php echo $data['total']; ?>
 					</td>
 				</tr>
 			</tbody>

@@ -130,8 +130,13 @@ $user = $_SESSION["ses_username"];
 <?php
 
 if (isset($_POST['Simpan'])) {
+    //hitung total harga
+    $total_40 = $_POST['zak_40'] * $_POST['harga_40'];
+    $total_50 = $_POST['zak_50'] * $_POST['harga_50'];
+    $total = $total_40 + $total_50;
+
     //mulai proses simpan data
-    $sql_simpan = "INSERT INTO tb_pesanan (id_toko, id_angkut, noSPJ, noSO, angkut, zak_40, zak_50, harga_40, harga_50, kirim, terima, lunas) 
+    $sql_simpan = "INSERT INTO tb_pesanan (id_toko, id_angkut, noSPJ, noSO, angkut, zak_40, zak_50, harga_40, harga_50, total_40, total_50, total, kirim, terima) 
 	VALUES ('" . $_POST['id_toko'] . "',
             '" . $_POST['id_angkut'] . "',
 			'" . $_POST['spj'] . "',
@@ -141,9 +146,11 @@ if (isset($_POST['Simpan'])) {
 			'" . $_POST['zak_50'] . "',
 			'" . $_POST['harga_40'] . "',
 			'" . $_POST['harga_50'] . "',
+			'$total_40',
+			'$total_50',
+			'$total',
 			'" . $_POST['kirim'] . "',
-			'" . $_POST['terima'] . "',
-			'Belum')";
+			'" . $_POST['terima'] . "')";
     $query_simpan = mysqli_query($koneksi, $sql_simpan);
     mysqli_close($koneksi);
 

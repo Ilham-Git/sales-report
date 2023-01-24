@@ -385,24 +385,7 @@ include "inc/koneksi.php";
 								</a>
 							</li>
 
-							<li class="nav-header">Setting</li>
-
-							<li class="nav-item">
-								<a href="?page=import-data" class="nav-link">
-									<i class="nav-icon fas fa-download"></i>
-									<p>
-										Import Data
-									</p>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="?page=export-data" class="nav-link">
-									<i class="nav-icon fas fa-upload"></i>
-									<p>
-										Export Data
-									</p>
-								</a>
-							</li>
+							<li class="nav-header"></li>
 
 						<?php
 						}

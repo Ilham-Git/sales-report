@@ -20,10 +20,8 @@ if (isset($_POST['save_data'])) {
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
         $data = $spreadsheet->getActiveSheet()->toArray();
 
-        $count = '0';
-
         foreach ($data as $row) {
-            if ($count > 0) {
+            if ($row != null) {
                 $nik = '-';
                 $nama = $row['1'];
                 $tempat_lh = $row['2'];
@@ -43,7 +41,7 @@ if (isset($_POST['save_data'])) {
                 $result = mysqli_query($koneksi, $importQuery);
                 $msg = true;
             } else {
-                $count = '1';
+                break;
             }
         }
 
@@ -65,48 +63,97 @@ if (isset($_POST['save_data'])) {
 
 if (isset($_POST['export_data'])) {
     $file_ext_name = $_POST['export_file_type'];
-    $filename = 'data_watsor';
+    $db = $_POST['export_from'];
+    $filename = 'Data_' . $db . '_' . date('Y-m-d_H-i-s');
 
-    $exportQuery = "SELECT * FROM tb_pdd";
+    if ($db == "Pesanan") {
+        $exportQuery = "SELECT * from tb_pesanan as p 
+                    inner join tb_toko as t on p.id_toko=t.id_toko 
+                    inner join tb_angkut as a on p.id_angkut=a.id_angkut 
+                    where id_pesan IS NOT NULL";
+    } elseif ($db == "Toko") {
+        $exportQuery = "SELECT * FROM tb_toko WHERE id_toko IS NOT NULL";
+    } elseif ($db == "Angkutan") {
+        $exportQuery = "SELECT * FROM tb_angkut WHERE id_angkut IS NOT NULL";
+    } else {
+        $_SESSION['message'] = "Tidak Ada Data Yang Tersedia";
+    }
+
     $result = mysqli_query($koneksi, $exportQuery);
 
     if (mysqli_num_rows($result) > 0) {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-
-        $sheet->setCellValue('A1', 'Id');
-        $sheet->setCellValue('B1', 'NIK');
-        $sheet->setCellValue('C1', 'Nama');
-        $sheet->setCellValue('D1', 'Tempat Lahir');
-        $sheet->setCellValue('E1', 'Tanggal Lahir');
-        $sheet->setCellValue('F1', 'Jenis Kelamin');
-        $sheet->setCellValue('G1', 'Alamat');
-        $sheet->setCellValue('H1', 'RT');
-        $sheet->setCellValue('I1', 'RW');
-        $sheet->setCellValue('J1', 'Agama');
-        $sheet->setCellValue('K1', 'Status Kawin');
-        $sheet->setCellValue('L1', 'Pekerjaan');
-        $sheet->setCellValue('M1', 'Status');
-        $sheet->setCellValue('N1', 'Stunting');
-
         $rowCount = 2;
-        foreach ($result as $data) {
-            $sheet->setCellValue('A' . $rowCount, $data['id_pend']);
-            $sheet->setCellValue('B' . $rowCount, $data['nik']);
-            $sheet->setCellValue('C' . $rowCount, $data['nama']);
-            $sheet->setCellValue('D' . $rowCount, $data['tempat_lh']);
-            $sheet->setCellValue('E' . $rowCount, $data['tgl_lh']);
-            $sheet->setCellValue('F' . $rowCount, $data['jekel']);
-            $sheet->setCellValue('G' . $rowCount, $data['desa']);
-            $sheet->setCellValue('H' . $rowCount, $data['rt']);
-            $sheet->setCellValue('I' . $rowCount, $data['rw']);
-            $sheet->setCellValue('J' . $rowCount, $data['agama']);
-            $sheet->setCellValue('K' . $rowCount, $data['kawin']);
-            $sheet->setCellValue('L' . $rowCount, $data['pekerjaan']);
-            $sheet->setCellValue('M' . $rowCount, $data['status']);
-            $sheet->setCellValue('N' . $rowCount, $data['stunting']);
-            $rowCount++;
+        $no = 1;
+
+        if ($db == "Pesanan") {
+            $sheet->setCellValue('A1', 'No');
+            $sheet->setCellValue('B1', 'Nama Toko');
+            $sheet->setCellValue('C1', 'Tanggal Kirim');
+            $sheet->setCellValue('D1', 'Tanggal Terima');
+            $sheet->setCellValue('E1', 'No SPJ');
+            $sheet->setCellValue('F1', 'No SO');
+            $sheet->setCellValue('G1', 'Sopir');
+            $sheet->setCellValue('H1', 'Plat');
+            $sheet->setCellValue('I1', 'Angkut');
+            $sheet->setCellValue('J1', 'Zak 40kg');
+            $sheet->setCellValue('K1', 'Zak 50kg');
+            $sheet->setCellValue('L1', 'Harga 40kg');
+            $sheet->setCellValue('M1', 'Harga 50kg');
+            $sheet->setCellValue('N1', 'Total Harga 40kg');
+            $sheet->setCellValue('O1', 'Total Harga 50kg');
+            $sheet->setCellValue('P1', 'Total Harga');
+            $sheet->setCellValue('Q1', 'Wilayah');
+
+            foreach ($result as $data) {
+                $sheet->setCellValue('A' . $rowCount, $no++);
+                $sheet->setCellValue('B' . $rowCount, $data['nama_toko']);
+                $sheet->setCellValue('C' . $rowCount, $data['kirim']);
+                $sheet->setCellValue('D' . $rowCount, $data['terima']);
+                $sheet->setCellValue('E' . $rowCount, $data['noSPJ']);
+                $sheet->setCellValue('F' . $rowCount, $data['noSO']);
+                $sheet->setCellValue('G' . $rowCount, $data['sopir']);
+                $sheet->setCellValue('H' . $rowCount, $data['plat']);
+                $sheet->setCellValue('I' . $rowCount, $data['angkut']);
+                $sheet->setCellValue('J' . $rowCount, $data['zak_40']);
+                $sheet->setCellValue('K' . $rowCount, $data['zak_50']);
+                $sheet->setCellValue('L' . $rowCount, $data['harga_40']);
+                $sheet->setCellValue('M' . $rowCount, $data['harga_50']);
+                $sheet->setCellValue('N' . $rowCount, $data['total_40']);
+                $sheet->setCellValue('O' . $rowCount, $data['total_50']);
+                $sheet->setCellValue('P' . $rowCount, $data['total']);
+                $sheet->setCellValue('Q' . $rowCount, $data['wilayah']);
+                $rowCount++;
+            }
+        } elseif ($db == "Toko") {
+            $sheet->setCellValue('A1', 'NO');
+            $sheet->setCellValue('B1', 'Nama Toko');
+            $sheet->setCellValue('C1', 'Wilayah');
+
+            foreach ($result as $data) {
+                $sheet->setCellValue('A' . $rowCount, $no++);
+                $sheet->setCellValue('B' . $rowCount, $data['nama_toko']);
+                $sheet->setCellValue('C' . $rowCount, $data['wilayah']);
+                $rowCount++;
+            }
+        } elseif ($db == "Angkutan") {
+            $sheet->setCellValue('A1', 'NO');
+            $sheet->setCellValue('B1', 'Sopir');
+            $sheet->setCellValue('C1', 'Plat');
+            $sheet->setCellValue('D1', 'Wilayah');
+
+            foreach ($result as $data) {
+                $sheet->setCellValue('A' . $rowCount, $no++);
+                $sheet->setCellValue('B' . $rowCount, $data['sopir']);
+                $sheet->setCellValue('C' . $rowCount, $data['plat']);
+                $sheet->setCellValue('D' . $rowCount, $data['wilayah_angkut']);
+                $rowCount++;
+            }
+        } else {
+            $_SESSION['message'] = "Tidak Ada Data Yang Tersedia";
         }
+
 
         if ($file_ext_name == 'xlsx') {
             $writer = new Xlsx($spreadsheet);

@@ -149,6 +149,11 @@ while ($data = $sql->fetch_assoc()) {
 <?php
 
 if (isset($_POST['Ubah'])) {
+	//hitung total harga
+	$total_40 = $_POST['zak_40'] * $_POST['harga_40'];
+	$total_50 = $_POST['zak_50'] * $_POST['harga_50'];
+	$total = $total_40 + $total_50;
+
 	$sql_ubah = "UPDATE tb_pesanan SET 
 		id_toko='" . $_POST['id_toko'] . "',
 		id_angkut='" . $_POST['id_angkut'] . "',
@@ -159,6 +164,9 @@ if (isset($_POST['Ubah'])) {
 		zak_50='" . $_POST['zak_50'] . "',
 		harga_40='" . $_POST['harga_40'] . "',
 		harga_50='" . $_POST['harga_50'] . "',
+		total_40='$total_40',
+		total_50='$total_50',
+		total='$total',
 		kirim='" . $_POST['kirim'] . "',
 		terima='" . $_POST['terima'] . "'
 		WHERE id_pesan='" . $_POST['id_pesan'] . "'";

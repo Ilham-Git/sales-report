@@ -97,7 +97,7 @@ include 'inc/koneksi.php';
 								Rp.<?php echo $data['harga_50']; ?>
 							</td>
 							<td>
-								Rp.<?php echo ($data['zak_40'] * $data['harga_40']) + ($data['zak_50'] * $data['harga_50']); ?>
+								Rp.<?php echo $data['total']; ?>
 							</td>
 							<td>
 								<?php echo $data['wilayah']; ?>
