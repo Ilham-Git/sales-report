@@ -11,6 +11,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Csv;
 if (isset($_POST['save_data'])) {
     $filename = $_FILES['import_file']['name'];
     $file_ext = pathinfo($filename, PATHINFO_EXTENSION);
+    $db = $_POST['import_to'];
 
     $allowed_ext = ['xls', 'csv', 'xlsx'];
 
@@ -22,25 +23,25 @@ if (isset($_POST['save_data'])) {
 
         foreach ($data as $row) {
             if ($row != null) {
-                $nik = '-';
-                $nama = $row['1'];
-                $tempat_lh = $row['2'];
-                $tgl_lh = $row['3'];
-                $jekel = $row['4'];
-                $agama = $row['6'];
-                $pekerjaan = $row['8'];
-                $kawin = $row['9'];
-                $alamat = $row['11'];
-                $rt = $row['12'];
-                $rw = $row['13'];
-                $status = "Ada";
-                $stunting = "Tidak";
+                if ($db == "Toko") {
+                    $nama_toko = $row['1'];
+                    $wilayah = $row['2'];
 
-                $importQuery = "INSERT INTO tb_pdd (nik,nama,tempat_lh,tgl_lh,jekel,desa,rt,rw,agama,kawin,pekerjaan,status,stunting) VALUES (
-                '$nik','$nama','$tempat_lh','$tgl_lh','$jekel','$alamat','$rt','$rw','$agama','$kawin','$pekerjaan','$status','$stunting')";
-                $result = mysqli_query($koneksi, $importQuery);
-                $msg = true;
+                    $importQuery = "INSERT INTO tb_toko (nama_toko, wilayah) VALUES ('$nama_toko','$wilayah')";
+                    $result = mysqli_query($koneksi, $importQuery);
+                    $msg = true;
+                }
+                if ($db == "Ankutan") {
+                    $sopir = $row['1'];
+                    $plat = $row['2'];
+                    $angkut = $row['3'];
+
+                    $importQuery = "INSERT INTO tb_angkut (sopir, plat, wilayah_angkut) VALUES ('$sopir','$plat','$angkut')";
+                    $result = mysqli_query($koneksi, $importQuery);
+                    $msg = true;
+                }
             } else {
+                $msg = false;
                 break;
             }
         }

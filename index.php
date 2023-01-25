@@ -195,7 +195,7 @@ include "inc/koneksi.php";
 							</li>
 
 							<li class="nav-item has-treeview">
-								<a href="?page=data-toko-sales" class="nav-link">
+								<a href="?page=data-toko" class="nav-link">
 									<i class="nav-icon fas fa-home"></i>
 									<p>
 										Kelola Data Toko
@@ -204,7 +204,7 @@ include "inc/koneksi.php";
 							</li>
 
 							<li class="nav-item has-treeview">
-								<a href="?page=data-angkut-sales" class="nav-link">
+								<a href="?page=data-angkut" class="nav-link">
 									<i class="nav-icon fas fa-truck"></i>
 									<p>
 										Kelola Data Angkutan
@@ -258,56 +258,6 @@ include "inc/koneksi.php";
 										<i class="fas fa-angle-left right"></i>
 									</p>
 								</a>
-								<ul class="nav nav-treeview">
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Bone 1</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Bone 2</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Bone 3</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Parepare</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Pinrang</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Sidrap</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Soppeng</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="?page=data-pesanan" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Data Wajo</p>
-										</a>
-									</li>
-								</ul>
 							</li>
 
 							<li class="nav-item has-treeview">
