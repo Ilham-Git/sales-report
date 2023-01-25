@@ -31,7 +31,7 @@ if (isset($_POST['save_data'])) {
                     $result = mysqli_query($koneksi, $importQuery);
                     $msg = true;
                 }
-                if ($db == "Ankutan") {
+                if ($db == "Angkutan") {
                     $sopir = $row['1'];
                     $plat = $row['2'];
                     $angkut = $row['3'];
